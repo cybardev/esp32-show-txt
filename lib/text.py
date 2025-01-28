@@ -1,8 +1,6 @@
-from lib.oled import Screen
-
 class Text:
-    def __init__(self):
-        self._screen = Screen()
+    def __init__(self, screen):
+        self._screen = screen
         self._screen.clr()
         self._W, self._H, self._X0, self._Y0 = self._screen.info()
 
