@@ -16,11 +16,13 @@ class Screen(SH1106_I2C):
         super().__init__(
             self.X0 + self.W, (self.Y0 + self.H + 7) & 0xF8, i2c, rotate=180
         )
+        self.clr()
+
+        self.writer = ezFBfont(self, ascii_font)
+
+    def clr(self):
         self.contrast(255)
         self.fill(0)
-        
-        self.writer = ezFBfont(self, ascii_font)
 
     def info(self):
         return self.W, self.H, self.X0, self.Y0
-
