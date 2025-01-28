@@ -1,5 +1,7 @@
-from machine import Pin, I2C  # type: ignore
+from machine import Pin, I2C
 from sh1106 import SH1106_I2C
+from ezFBfont import ezFBfont
+import ezFBfont_amstrad_cpc_extended_ascii_08 as ascii_font
 
 
 class Screen(SH1106_I2C):
@@ -16,6 +18,9 @@ class Screen(SH1106_I2C):
         )
         self.contrast(255)
         self.fill(0)
+        
+        self.writer = ezFBfont(self, ascii_font)
 
     def info(self):
         return self.W, self.H, self.X0, self.Y0
+
