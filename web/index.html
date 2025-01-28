@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESP Text Writer</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Display Text on ESP Screen</h1>
+      </section>
+      <section x-data="{ show: false, border: true, line0: '', line1: '', line2: '' }">
+        <form action="/">
+          <header>
+            <button type="submit">Show</button>
+          </header>
+          <input type="checkbox" id="border" x-model="border" />
+          <label for="border">Border</label>
+          <br />
+          <input type="checkbox" id="oneliner" x-model="show" />
+          <label for="oneliner" x-text="show ? 'Single-line' : 'Double-line'"></label>
+          <div x-show="!show">
+            <label for="line0">Line:</label>
+            <input
+              type="text"
+              id="line0"
+              name="line0"
+              size="20"
+              placeholder="Henlo~:3"
+              x-model="line0"
+            />
+          </div>
+          <div x-show="show">
+            <label for="line1">Line 1:</label>
+            <input
+              type="text"
+              id="line1"
+              name="line1"
+              size="20"
+              placeholder="Henlo,"
+              x-model="line1"
+            />
+            <label for="line2">Line 2:</label>
+            <input
+              type="text"
+              id="line2"
+              name="line2"
+              size="20"
+              placeholder="Wrold~:3"
+              x-model="line2"
+            />
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
