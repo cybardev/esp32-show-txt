@@ -19,6 +19,10 @@ class Text:
         elif numlines == 2:
             self._screen.writer.write(lines[0], self._X0 + X_offset, self._Y0 + 8 + Y_offset)
             self._screen.writer.write(lines[1], self._X0 + X_offset, self._Y0 + 24 + Y_offset)
+        elif numlines == 3 and not border:
+            self._screen.writer.write(lines[0], self._X0 + X_offset, self._Y0)
+            self._screen.writer.write(lines[1], self._X0 + X_offset, self._Y0 + 16)
+            self._screen.writer.write(lines[2], self._X0 + X_offset, self._Y0 + 32)
         else:
             self._screen.writer.write("ERROR", self._X0 + 16, self._Y0 + 17)
 
