@@ -1,9 +1,4 @@
-from lib.oled import Screen
+from lib.text import Text
 
-screen = Screen()
-W, H, X0, Y0 = screen.info()
-
-screen.rect(X0, Y0, W, H, 1)
-screen.writer.write("Henlo,", X0 + 4, Y0 + 8)
-screen.writer.write("Wrold~ :3", X0 + 4, Y0 + 24)
-screen.show()
+txt = Text()
+txt.writelines(["Henlo,", "Wrold~ :3"], border=True, X_offset=1)
