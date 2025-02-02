@@ -170,9 +170,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-# editor config
-.vscode
-
 # macOS artifacts
 .DS_Store
-
