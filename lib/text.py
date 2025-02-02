@@ -4,6 +4,9 @@ class Text:
         self._screen.clr()
         self._W, self._H, self._X0, self._Y0 = self._screen.info()
 
+    def writeline(self, line, X_offset, Y_offset):
+        self._screen.writer.write(line, self._X0 + X_offset, self._Y0 + Y_offset)
+
     def writelines(self, lines, border=False, X_offset=0, Y_offset=0):
         self._screen.clr()
 
@@ -13,15 +16,15 @@ class Text:
 
         numlines = len(lines)
         if numlines == 1:
-            self._screen.writer.write(lines[0], self._X0 + X_offset, self._Y0 + 18 + Y_offset)
+            self.writeline(lines[0], X_offset, Y_offset + 18)
         elif numlines == 2:
-            self._screen.writer.write(lines[0], self._X0 + X_offset, self._Y0 + 8 + Y_offset)
-            self._screen.writer.write(lines[1], self._X0 + X_offset, self._Y0 + 24 + Y_offset)
+            self.writeline(lines[0], X_offset, Y_offset + 8)
+            self.writeline(lines[1], X_offset, Y_offset + 24)
         elif numlines == 3 and not border:
-            self._screen.writer.write(lines[0], self._X0 + X_offset, self._Y0)
-            self._screen.writer.write(lines[1], self._X0 + X_offset, self._Y0 + 16)
-            self._screen.writer.write(lines[2], self._X0 + X_offset, self._Y0 + 32)
+            self.writeline(lines[0], X_offset, 0)
+            self.writeline(lines[1], X_offset, 16)
+            self.writeline(lines[2], X_offset, 32)
         else:
-            self._screen.writer.write("ERROR", self._X0 + 16, self._Y0 + 17)
+            self.writeline("ERROR", 16, 17)
 
         self._screen.show()
