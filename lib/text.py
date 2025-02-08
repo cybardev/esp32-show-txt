@@ -35,7 +35,7 @@ class Text:
     self.screen.fill(0)
 
     if border:
-      self.screen.rect(self._x0, self._y0, self.screen.width, self.screen.height, 1)
+      self.screen.rect(self._x0, self._y0, self.screen.W, self.screen.H, 1)
       x_offset += 2
 
     numlines = len(lines)
